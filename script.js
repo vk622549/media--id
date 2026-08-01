@@ -1,27 +1,26 @@
 fetch("data.json")
-.then(response => response.json())
-.then(data => {
+.then(function(response){
+    return response.json();
+})
+.then(function(data){
 
-document.getElementById("name").innerHTML = data.name;
+    document.getElementById("name").innerText = data.name;
+    document.getElementById("designation").innerText = data.designation;
+    document.getElementById("regno").innerText = data.regno;
+    document.getElementById("media").innerText = data.media;
 
-document.getElementById("designation").innerHTML = data.designation;
+    document.getElementById("contact").innerText = data.contact;
+    document.getElementById("contact").href = "tel:" + data.contact;
 
-document.getElementById("regno").innerHTML = data.regno;
+    document.getElementById("email").innerText = data.email;
+    document.getElementById("email").href = "mailto:" + data.email;
 
-document.getElementById("media").innerHTML = data.media;
+    document.getElementById("youtube").href = data.youtube;
+    document.getElementById("facebook").href = data.facebook;
+    document.getElementById("instagram").href = data.instagram;
+    document.getElementById("whatsapp").href = "https://wa.me/" + data.whatsapp;
 
-document.getElementById("contact").innerHTML = data.contact;
-document.getElementById("contact").href = "tel:" + data.contact;
-
-document.getElementById("email").innerHTML = data.email;
-document.getElementById("email").href = "mailto:" + data.email;
-
-document.getElementById("youtube").href = data.youtube;
-
-document.getElementById("facebook").href = data.facebook;
-
-document.getElementById("instagram").href = data.instagram;
-
-document.getElementById("whatsapp").href = "https://wa.me/" + data.whatsapp;
-
+})
+.catch(function(error){
+    console.log(error);
 });
